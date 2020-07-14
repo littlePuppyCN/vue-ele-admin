@@ -3,14 +3,20 @@
     <el-menu
       default-active="1"
     >
-      <el-menu-item index="1">
-        <i class="el-icon-location" />
-        <span slot="title">Index</span>
-      </el-menu-item>
-      <el-menu-item index="2">
-        <i class="el-icon-menu" />
-        <span slot="title">Guide</span>
-      </el-menu-item>
+      <router-link to="/index">
+        <el-menu-item index="1">
+          <i class="el-icon-location" />
+          <span slot="title">Index</span>
+        </el-menu-item>
+      </router-link>
+
+      <router-link to="/guide">
+        <el-menu-item index="2">
+          <i class="el-icon-menu" />
+          <span slot="title">Guide</span>
+        </el-menu-item>
+      </router-link>
+
       <el-submenu index="3">
         <template slot="title">
           <i class="el-icon-setting" />
@@ -64,7 +70,7 @@ aside{
     /deep/.el-menu-item-group__title{
         display: none;
     }
-    .el-menu-item-group a{
+    a{
         text-decoration: none;
     }
     .el-menu{

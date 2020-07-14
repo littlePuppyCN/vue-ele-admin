@@ -39,18 +39,19 @@ export default {
   methods: {
     submitForm(formName) {
       this.$refs[formName].validate((valid) => {
-        if (valid) {
-          this.axios.post('/getuser', this.ruleForm)
-            .then(res => {
-            //   if (res.data) {
-            //     this.$router.push('/home')
-            //   }
-              console.log(res)
-            }).catch(err => console.log(err))
-        } else {
-          console.log('error submit!!')
-          return false
-        }
+        this.$router.push('/home')
+        // if (valid) {
+        //   this.axios.post('/getuser', this.ruleForm)
+        //     .then(res => {
+        //     //   if (res.data) {
+        //     //     this.$router.push('/home')
+        //     //   }
+        //       console.log(res)
+        //     }).catch(err => console.log(err))
+        // } else {
+        //   console.log('error submit!!')
+        //   return false
+        // }
       })
     }
   }

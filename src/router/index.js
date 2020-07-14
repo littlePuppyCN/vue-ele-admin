@@ -18,12 +18,23 @@ const routes = [
   {
     path: '/home',
     name: 'Home',
+    redirect: '/index',
     component: Home,
     children: [
       {
         path: '/user',
         name: 'User',
         component: () => import(/* webpackChunkName: "about" */ '../components/permission/user.vue')
+      },
+      {
+        path: '/index',
+        name: 'Index',
+        component: () => import(/* webpackChunkName: "about" */ '../components/index/index.vue')
+      },
+      {
+        path: '/guide',
+        name: 'Guide',
+        component: () => import(/* webpackChunkName: "about" */ '../components/guide/guide.vue')
       },
       {
         path: '/admin',
