@@ -16,16 +16,29 @@
           <i class="el-icon-setting" />
           <span>Auth</span>
         </template>
+
         <el-menu-item-group>
-          <el-menu-item index="3-1">
-            <i class="el-icon-user" />
-            User</el-menu-item>
-          <el-menu-item index="3-2">
-            <i class="el-icon-user-solid" />
-            Admin</el-menu-item>
-          <el-menu-item index="3-3">
-            <i class="el-icon-s-check" />
-            Permission</el-menu-item>
+          <router-link to="/user">
+            <el-menu-item index="3-1">
+              <i class="el-icon-user" />
+              User
+            </el-menu-item>
+          </router-link>
+
+          <router-link to="/admin">
+            <el-menu-item index="3-2">
+              <i class="el-icon-user-solid" />
+              Admin
+            </el-menu-item>
+          </router-link>
+
+          <router-link to="/permission">
+            <el-menu-item index="3-3">
+              <i class="el-icon-s-check" />
+              Permission
+            </el-menu-item>
+          </router-link>
+
         </el-menu-item-group>
       </el-submenu>
     </el-menu>
@@ -50,6 +63,9 @@ aside{
     display: flex;
     /deep/.el-menu-item-group__title{
         display: none;
+    }
+    .el-menu-item-group a{
+        text-decoration: none;
     }
     .el-menu{
         width: 200px;
