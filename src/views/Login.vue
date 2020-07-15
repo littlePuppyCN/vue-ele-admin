@@ -17,13 +17,14 @@
 </template>
 
 <script>
+
 export default {
   data() {
     return {
       ruleForm: {
+        id: 450000199101135719,
         name: 'admin',
-        password: 11111,
-        id: 450000199101135719
+        password: '11111'
       },
       rules: {
         name: [
@@ -39,19 +40,27 @@ export default {
   methods: {
     submitForm(formName) {
       this.$refs[formName].validate((valid) => {
-        this.$router.push('/home')
-        // if (valid) {
-        //   this.axios.post('/getuser', this.ruleForm)
-        //     .then(res => {
-        //     //   if (res.data) {
-        //     //     this.$router.push('/home')
-        //     //   }
-        //       console.log(res)
-        //     }).catch(err => console.log(err))
-        // } else {
-        //   console.log('error submit!!')
-        //   return false
-        // }
+        if (valid) {
+          this.axios.post('/getuser', this.ruleForm)
+            .then(res => {
+              if (res.data) {
+                this.$message({
+                  message: 'admin confirm',
+                  type: 'success',
+                  duration: 800,
+                  onClose: () => {
+                    window.localStorage['token'] = JSON.stringify(res.data.token)
+                    this.$router.push('/home')
+                  }
+                })
+              } else {
+                this.$message.error('admin not defined')
+              }
+            }).catch(err => console.log(err))
+        } else {
+          console.log('error submit!!')
+          return false
+        }
       })
     }
   }

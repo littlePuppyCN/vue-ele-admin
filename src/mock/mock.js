@@ -31,7 +31,10 @@ function getList() {
   }
   // 每次获取数据时，再从 localStorage 中拉取数据
   var userlist = JSON.parse(localStorage.getItem('userlist'))
-  return userlist
+  return {
+    userlist,
+    tokenErr: true
+  }
 }
 
 // 获取单个用户信息
@@ -40,9 +43,10 @@ function getUser(options) {
   var userlist = JSON.parse(localStorage.getItem('userlist'))
   // 遍历数组，返回id 与传来 id 相当的一个对象
   for (const index in userlist) {
-    if (userlist[index].name === options.body.name) {
-      var user = userlist[index]
-      return user
+    if (userlist[index].name === 'admin') {
+      return {
+        token: 'wzytoken'
+      }
     }
   }
 }

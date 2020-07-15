@@ -12,7 +12,7 @@
         <el-dropdown>
           <span class="el-dropdown-link">
             admin<i class="el-icon-arrow-down el-icon--right" />
-            <div class="user-img" />
+            <div class="user-img" @click="testToken" />
           </span>
           <el-dropdown-menu slot="dropdown">
             <el-dropdown-item>index</el-dropdown-item>
@@ -28,6 +28,15 @@
 <script>
 export default {
   components: {
+  },
+  methods: {
+    testToken() {
+      this.axios.get('/getlist')
+        .then(res => {
+          console.log(1)
+          console.log(res)
+        })
+    }
   }
 }
 </script>
