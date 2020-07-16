@@ -12,7 +12,6 @@ axios.interceptors.request.use(
     if (localStorage.token) {
       // 将token设置为请求头
       config.headers.Authorization = localStorage.token
-      console.log(config.headers)
     }
     return config
   },
@@ -26,6 +25,7 @@ axios.interceptors.response.use(
   response => {
     if (response.data.tokenErr) {
       router.replace('/')
+      window.localStorage.removeItem('token')
       Message.error('token guoqi, please login again')
     }
     return response

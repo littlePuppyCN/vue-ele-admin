@@ -23,13 +23,13 @@ export default {
     return {
       ruleForm: {
         id: 450000199101135719,
-        name: 'admin',
+        name: '李艳',
         password: '11111'
       },
       rules: {
         name: [
           { required: true, message: 'name here', trigger: 'blur' },
-          { min: 3, max: 5, message: '3-5 length', trigger: 'blur' }
+          { min: 2, max: 5, message: '3-5 length', trigger: 'blur' }
         ],
         password: [
           { required: true, message: 'pass here', trigger: 'blur' }

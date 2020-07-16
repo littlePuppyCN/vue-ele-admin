@@ -4,11 +4,8 @@
       <div class="title">VUE PROJECT</div>
       <div class="title-nav">
         <el-breadcrumb separator="/">
-          <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
-          <el-breadcrumb-item>1</el-breadcrumb-item>
-          <el-breadcrumb-item>2</el-breadcrumb-item>
-          <el-breadcrumb-item>3</el-breadcrumb-item>
-        </el-breadcrumb>
+          <el-breadcrumb-item :to="{ path: '/' }">Index</el-breadcrumb-item>
+          <el-breadcrumb-item v-for="i in routeArr" :key="i.name">{{ i.name }}</el-breadcrumb-item></el-breadcrumb>
         <el-dropdown>
           <span class="el-dropdown-link">
             admin<i class="el-icon-arrow-down el-icon--right" />
@@ -29,13 +26,30 @@
 export default {
   components: {
   },
+  data() {
+    return {
+      routeArr: []
+    }
+  },
+  watch: {
+    $route() {
+      this.getRouterArr()
+    }
+  },
+  mounted() {
+    this.getRouterArr()
+  },
   methods: {
     testToken() {
       this.axios.get('/getlist')
         .then(res => {
-          console.log(1)
           console.log(res)
         })
+    },
+    // 获取router信息改变bread
+    getRouterArr() {
+      var matched = this.$route.matched
+      this.routeArr = matched
     }
   }
 }

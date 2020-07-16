@@ -7,7 +7,12 @@ Mock.setup({
 })
 // 创建一个数组用来接收模拟的数据
 const mocklist = []
-const count = 10
+const count = 100
+const map = []
+
+map.push(Mock.mock({
+  'range': '@range(1, 50)'
+}))
 
 for (let i = 0; i < count; i++) {
   mocklist.push(Mock.mock({
@@ -33,7 +38,7 @@ function getList() {
   var userlist = JSON.parse(localStorage.getItem('userlist'))
   return {
     userlist,
-    tokenErr: true
+    tokenErr: false
   }
 }
 
@@ -43,7 +48,7 @@ function getUser(options) {
   var userlist = JSON.parse(localStorage.getItem('userlist'))
   // 遍历数组，返回id 与传来 id 相当的一个对象
   for (const index in userlist) {
-    if (userlist[index].name === 'admin') {
+    if (userlist[index].name === '李艳') {
       return {
         token: 'wzytoken'
       }
@@ -101,12 +106,20 @@ function updateUser(options) {
   }
 }
 
+function getChartsMap() {
+  return {
+    range: map[0].range,
+    tokenErr: false
+  }
+}
+
 // 制作各个接口
 Mock.mock('/getlist', 'get', getList)
 Mock.mock('/getuser', 'post', getUser)
 Mock.mock('/deleteuser', 'post', deleteUser)
 Mock.mock('/adduser', 'post', addUser)
 Mock.mock('/updateuser', 'post', updateUser)
+Mock.mock('/getchartsmap', 'get', getChartsMap)
 
 // 最后将 Mock 导出
 export default Mock
