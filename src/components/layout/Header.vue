@@ -14,7 +14,7 @@
           <el-dropdown-menu slot="dropdown">
             <el-dropdown-item>index</el-dropdown-item>
             <el-dropdown-item>my page</el-dropdown-item>
-            <el-dropdown-item>logout</el-dropdown-item>
+            <el-dropdown-item @click.native="clearToken">logout</el-dropdown-item>
           </el-dropdown-menu>
         </el-dropdown>
       </div>
@@ -40,6 +40,10 @@ export default {
     this.getRouterArr()
   },
   methods: {
+    clearToken() {
+      window.localStorage.removeItem('token')
+      this.$router.push('/login')
+    },
     testToken() {
       this.axios.get('/getlist')
         .then(res => {

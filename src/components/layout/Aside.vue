@@ -123,6 +123,30 @@
 
         </el-menu-item-group>
       </el-submenu>
+
+      <el-submenu index="7">
+        <template slot="title">
+          <i class="el-icon-orange" />
+          <span>Mycomponents</span>
+        </template>
+
+        <el-menu-item-group>
+          <router-link to="/upload">
+            <el-menu-item index="7-1">
+              <i class="el-icon-coffee" />
+              Upload-image
+            </el-menu-item>
+          </router-link>
+
+          <router-link to="/drag">
+            <el-menu-item index="7-2">
+              <i class="el-icon-coffee" />
+              Vue-draggable
+            </el-menu-item>
+          </router-link>
+        </el-menu-item-group>
+      </el-submenu>
+
     </el-menu>
 
     <div id="view">
@@ -132,7 +156,25 @@
 </template>
 
 <script>
-export default {}
+export default {
+  // watch: {
+  //   $route(val, old) {
+  //     console.log(val)
+  //
+  //   }
+  // },
+  data() {
+    return {
+      allRoutes: []
+    }
+  },
+  mounted() {
+
+  },
+  methods: {
+
+  }
+}
 </script>
 
 <style lang='less' scoped>

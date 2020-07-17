@@ -81,7 +81,7 @@ export default {
       for (var i = 0; i < this.userList.length; i++) {
         for (var j = 0; j < this.multipleSelection.length; j++) {
           if (this.multipleSelection[j].id === this.userList[i].id) {
-            this.userList.splice(1, i)
+            this.userList.splice(0, i)
           }
         }
       }
@@ -96,16 +96,13 @@ export default {
       this.pagesize = size
     },
     handleClick(v) {
-      console.log(v)
       var arr = this.userList.filter(item => {
         return v.id !== item.id
       })
       this.userList = arr
     },
     getUser() {
-      this.axios.get('/getlist').then(res => {
-        this.userList = res.data.userlist
-      })
+      this.userList = JSON.parse(window.localStorage.getItem('userlist'))
     }
   }
 

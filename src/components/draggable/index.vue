@@ -1,18 +1,20 @@
 <template>
   <div>
-    <VueDragResize
-      :is-active="false"
-      :w="300"
-    />
+    123
   </div>
 </template>
 
 <script>
-import VueDragResize from 'vue-drag-resize'
+// import draggable from 'vuedraggable'
 export default {
   name: 'Drag',
   components: {
-    VueDragResize
+    // draggable
+  },
+  data() {
+    return {
+      myArray: [1, 2, 3, 4, 5]
+    }
   }
 }
 </script>

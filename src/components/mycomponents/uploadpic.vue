@@ -1,5 +1,5 @@
 <template>
-  <div>admin</div>
+  <div>pic</div>
 </template>
 
 <script>

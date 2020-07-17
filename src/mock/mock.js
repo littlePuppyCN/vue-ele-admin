@@ -48,7 +48,7 @@ function getUser(options) {
   var userlist = JSON.parse(localStorage.getItem('userlist'))
   // 遍历数组，返回id 与传来 id 相当的一个对象
   for (const index in userlist) {
-    if (userlist[index].name === '李艳') {
+    if (userlist[index].name === '赵涛') {
       return {
         token: 'wzytoken'
       }

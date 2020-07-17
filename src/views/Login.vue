@@ -23,7 +23,7 @@ export default {
     return {
       ruleForm: {
         id: 450000199101135719,
-        name: '李艳',
+        name: '赵涛',
         password: '11111'
       },
       rules: {
@@ -36,6 +36,9 @@ export default {
         ]
       }
     }
+  },
+  created() {
+    this.getList()
   },
   methods: {
     submitForm(formName) {
@@ -61,6 +64,11 @@ export default {
           console.log('error submit!!')
           return false
         }
+      })
+    },
+    getList() {
+      this.axios.get('/getlist').then(res => {
+        return res
       })
     }
   }

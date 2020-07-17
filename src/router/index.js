@@ -15,11 +15,6 @@ const routes = [
     component: () => import(/* webpackChunkName: "about" */ '../views/Login.vue')
   },
   {
-    path: '/drag',
-    name: 'Drag',
-    component: () => import(/* webpackChunkName: "about" */ '../components/draggable/index.vue')
-  },
-  {
     path: '/home',
     name: 'Home',
     component: Home,
@@ -32,6 +27,11 @@ const routes = [
           requiresAuth: true
         },
         component: () => import(/* webpackChunkName: "about" */ '../components/guide/guide.vue')
+      },
+      {
+        path: '/drag',
+        name: 'Drag',
+        component: () => import(/* webpackChunkName: "about" */ '../components/draggable/index.vue')
       },
       {
         path: '/index',
@@ -117,6 +117,14 @@ const routes = [
           requiresAuth: true
         },
         component: () => import(/* webpackChunkName: "about" */ '../components/excel/export.vue')
+      },
+      {
+        path: '/upload',
+        name: 'Upload',
+        meta: {
+          requiresAuth: true
+        },
+        component: () => import(/* webpackChunkName: "about" */ '../components/mycomponents/uploadpic.vue')
       }
     ]
   }
