@@ -150,7 +150,7 @@
     </el-menu>
 
     <div id="view">
-      <router-view />
+      <router-view fa="123" />
     </div>
   </aside>
 </template>

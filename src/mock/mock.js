@@ -46,11 +46,16 @@ function getList() {
 function getUser(options) {
   // 先从 localStorage 中拉取数据
   var userlist = JSON.parse(localStorage.getItem('userlist'))
+  var op = JSON.parse(options.body)
   // 遍历数组，返回id 与传来 id 相当的一个对象
   for (const index in userlist) {
-    if (userlist[index].name === '赵涛') {
+    if (userlist[index].name === op.name) {
       return {
         token: 'wzytoken'
+      }
+    } else {
+      return {
+        token: ''
       }
     }
   }

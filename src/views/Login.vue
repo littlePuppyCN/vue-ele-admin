@@ -22,8 +22,8 @@ export default {
   data() {
     return {
       ruleForm: {
-        id: 450000199101135719,
-        name: '赵涛',
+        id: 510000201108283753,
+        name: '陈涛',
         password: '11111'
       },
       rules: {
@@ -46,7 +46,7 @@ export default {
         if (valid) {
           this.axios.post('/getuser', this.ruleForm)
             .then(res => {
-              if (res.data) {
+              if (res.data.token) {
                 this.$message({
                   message: 'admin confirm',
                   type: 'success',
